@@ -322,7 +322,8 @@ section h2::after {
     .home-content {
         flex-direction: column;
         text-align: center;
-        gap: 20px;
+        padding: 20px;
+        margin-top: 40px;
     }
 
     .intro-text {
@@ -331,6 +332,12 @@ section h2::after {
 
     .intro-image {
         order: 1;
+        margin-bottom: 30px;
+    }
+
+    .intro-image img {
+        max-width: 300px;
+        width: 100%;
     }
 
     .nav-links {
@@ -339,13 +346,14 @@ section h2::after {
         right: -100%;
         height: 100vh;
         width: 250px;
-        background: rgba(128, 128, 128, 0.9);
+        background: rgba(128, 128, 128, 0.95);
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 30px;
         transition: right 0.3s ease-in-out;
         z-index: 999;
+        backdrop-filter: blur(10px);
     }
 
     .nav-links.active {
@@ -354,16 +362,39 @@ section h2::after {
 
     .menu-toggle {
         display: block;
+        z-index: 1000;
+    }
+
+    .project-buttons {
+        justify-content: center;
+    }
+
+    .skills-list {
+        gap: 15px;
+    }
+
+    .skill-item {
+        min-width: 140px;
+        justify-content: center;
     }
 }
 
 @media (max-width: 576px) {
+    .container {
+        width: 95%;
+    }
+
     .intro-text h1 {
         font-size: 32px;
     }
 
+    .intro-text p {
+        font-size: 16px;
+    }
+
     .btn {
         padding: 10px 20px;
+        font-size: 14px;
     }
 
     .project-item {
@@ -378,17 +409,138 @@ section h2::after {
         font-size: 14px;
     }
 
+    .project-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .project-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
     .skill-item {
         padding: 12px 20px;
         font-size: 14px;
+        width: calc(50% - 10px);
+        justify-content: center;
+    }
+
+    .contact-links {
+        gap: 15px;
     }
 
     .contact-links a {
         font-size: 16px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    section h2 {
+        font-size: 28px;
+        margin-bottom: 40px;
     }
 }
 
 /* Smooth Scrolling for Anchor Links */
 html {
     scroll-behavior: smooth;
+}
+
+.project-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.project-btn {
+    font-size: 14px;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.project-btn i {
+    font-size: 16px;
+}
+
+/* Add smooth transition for menu toggle */
+.menu-toggle.active i {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+}
+
+/* Ensure proper spacing for all sections */
+section {
+    scroll-margin-top: 80px;
+}
+
+/* Add these new styles */
+.project-preview {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.project-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.preview-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.preview-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+}
+
+.project-item:hover .preview-overlay {
+    opacity: 1;
+}
+
+.project-item:hover .project-preview img {
+    transform: scale(1.05);
+}
+
+/* Update existing project-item styles */
+.project-item {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+    .project-preview {
+        height: 200px;
+    }
+
+    .preview-buttons {
+        flex-direction: column;
+    }
 }

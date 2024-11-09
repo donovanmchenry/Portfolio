@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="icon" href="/dsharp.png" type="png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -50,26 +51,56 @@
             <h2>Projects</h2>
             <div class="project-list">
                 <div class="project-item">
+                    <div class="project-preview">
+                        <img src="orderuppic.png" alt="Order Up! Preview">
+                        <div class="preview-overlay">
+                            <div class="preview-buttons">
+                                <a href="https://github.com/donovanmchenry/Order-Up/" target="_blank" class="btn project-btn">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                                <a href="https://orderupgame.netlify.app" target="_blank" class="btn project-btn">
+                                    <i class="fas fa-external-link-alt"></i> View Live Site
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <h3>Order Up!</h3>
                     <p>"Order Up!" is a memory-based card game where you act as a chef matching ingredients to randomized foods.</p>
-                    <a href="https://github.com/donovanmchenry/Order-Up/" target="_blank" class="project-link">View on GitHub</a>
-                    <a> | </a>
-                    <a href="https://orderupgame.netlify.app" target="_blank" class="project-link">View Live Site</a>
                 </div>
                 <div class="project-item">
+                    <div class="project-preview">
+                        <img src="chatifypic.png" alt="Chatify Preview">
+                        <div class="preview-overlay">
+                            <div class="preview-buttons">
+                                <a href="https://github.com/donovanmchenry/Chatify/" target="_blank" class="btn project-btn">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                                <a href="https://chatify4o.netlify.app" target="_blank" class="btn project-btn">
+                                    <i class="fas fa-external-link-alt"></i> View Live Site
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <h3>Chatify</h3>
                     <p>"Chatify" is an AI Chatbot that utilizes OpenAI's ChatGPT 3.5 Turbo API and Spotify's API to craft user recommendations through conversation.</p>
-                    <a href="https://github.com/donovanmchenry/Chatify/" target="_blank" class="project-link">View on GitHub</a>
                 </div>
                 <div class="project-item">
                     <h3>productiv</h3>
                     <p>"productiv" is a task management app that helps users organize and complete daily activities efficiently, using RPG gaming elements to motivate users.</p>
-                    <a href="https://github.com/donovanmchenry/productiv" target="_blank" class="project-link">View on GitHub</a>
+                    <div class="project-buttons">
+                        <a href="https://github.com/donovanmchenry/productiv" target="_blank" class="btn project-btn">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
                 </div>
                 <div class="project-item">
                     <h3>stickywall</h3>
                     <p>"stickywall" is a note-taking app that allows users to stack up notes on a wall to collect their thoughts.</p>
-                    <a href="https://github.com/donovanmchenry/stickywall/" target="_blank" class="project-link">View on GitHub</a>
+                    <div class="project-buttons">
+                        <a href="https://github.com/donovanmchenry/stickywall/" target="_blank" class="btn project-btn">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -137,6 +168,25 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav-links') && !e.target.closest('.menu-toggle')) {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                }
+            });
+
+            // Close menu when clicking a nav link
+            const navLinksElements = document.querySelectorAll('.nav-links a');
+            navLinksElements.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
+            });
         });
     </script>
 </body>
