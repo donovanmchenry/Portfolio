@@ -112,8 +112,82 @@ body {
     color: #333;
 }
 
+@keyframes gradientFlow1 {
+    0% {
+        background-position: 0% 50%;
+    }
+    20% {
+        background-position: 60% 30%;
+    }
+    40% {
+        background-position: 30% 70%;
+    }
+    60% {
+        background-position: 100% 40%;
+    }
+    80% {
+        background-position: 50% 60%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes gradientFlow2 {
+    0% {
+        background-position: 100% 50%;
+    }
+    25% {
+        background-position: 40% 80%;
+    }
+    50% {
+        background-position: 70% 20%;
+    }
+    75% {
+        background-position: 20% 60%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
 .intro-text h1 span {
-    color: #0071e3;
+    background: linear-gradient(
+            45deg,
+            #0071e3,
+            #e8f0ff,
+            #0071e3
+        ),
+        linear-gradient(
+            -45deg,
+            #0071e3,
+            #e8f0ff,
+            #0071e3
+        );
+    background-size: 200% 200%, 200% 200%;
+    background-position: 0% 50%, 100% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: 
+        gradientFlow1 12s ease-in-out infinite,
+        gradientFlow2 15s ease-in-out infinite;
+    display: inline-block;
+    text-shadow: 0 0 15px rgba(0, 113, 227, 0.5);
+    position: relative;
+}
+
+.intro-text h1 span::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0.7;
+    background: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 .intro-text p {
@@ -314,6 +388,15 @@ section h2::after {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes swirlingGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
     }
 }
 
