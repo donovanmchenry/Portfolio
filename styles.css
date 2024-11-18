@@ -116,17 +116,23 @@ body {
     0% {
         background-position: 0% 50%;
     }
-    20% {
-        background-position: 60% 30%;
+    15% {
+        background-position: 45% 25%;
     }
-    40% {
-        background-position: 30% 70%;
+    30% {
+        background-position: 15% 75%;
+    }
+    45% {
+        background-position: 85% 40%;
     }
     60% {
-        background-position: 100% 40%;
+        background-position: 35% 65%;
     }
-    80% {
-        background-position: 50% 60%;
+    75% {
+        background-position: 95% 35%;
+    }
+    90% {
+        background-position: 25% 55%;
     }
     100% {
         background-position: 0% 50%;
@@ -137,14 +143,17 @@ body {
     0% {
         background-position: 100% 50%;
     }
-    25% {
-        background-position: 40% 80%;
+    20% {
+        background-position: 35% 85%;
     }
-    50% {
-        background-position: 70% 20%;
+    40% {
+        background-position: 80% 30%;
     }
-    75% {
-        background-position: 20% 60%;
+    60% {
+        background-position: 15% 70%;
+    }
+    80% {
+        background-position: 75% 25%;
     }
     100% {
         background-position: 100% 50%;
@@ -170,8 +179,8 @@ body {
     background-clip: text;
     color: transparent;
     animation: 
-        gradientFlow1 12s ease-in-out infinite,
-        gradientFlow2 15s ease-in-out infinite;
+        gradientFlow1 18s ease-in-out infinite,
+        gradientFlow2 23s ease-in-out infinite;
     display: inline-block;
     text-shadow: 0 0 15px rgba(0, 113, 227, 0.5);
     position: relative;
