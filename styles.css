@@ -164,13 +164,13 @@ body {
     background: linear-gradient(
             45deg,
             #0071e3,
-            #e8f0ff,
+            #0199ff,
             #0071e3
         ),
         linear-gradient(
             -45deg,
             #0071e3,
-            #e8f0ff,
+            #0199ff,
             #0071e3
         );
     background-size: 200% 200%, 200% 200%;
