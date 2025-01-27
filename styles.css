@@ -24,6 +24,8 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.6);
     display: flex;
     overflow: hidden;
+    background-image: url(images/60-lines.png);
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   }
   
   @media (max-width: 768px) {
