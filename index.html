@@ -1,194 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Donovan McHenry</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="/images/dsharp.png" type="png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Donovan McHenry — Dark Mode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Google Font (optional) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header class="navbar">
-        <div class="container">
-            <div class="logo">
-                Donovan McHenry
-            </div>
-            <nav class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </header>
+  <!-- Main Card Container -->
+  <div class="card-container">
+    <!-- Left Column: Profile, About, Contact -->
+    <div class="left-column">
+      <!-- Profile Section -->
+      <div class="profile-section">
+        <img src="images/image.png" alt="Profile Picture" />
+        <h1>Donovan McHenry</h1>
+        <p class="tagline">CS@NJIT | ColorStack Fellow</p>
+      </div>
 
-    <!-- Home Section -->
-    <section id="home" class="home">
-        <div class="container home-content">
-            <div class="intro-text">
-                <h1>Hi, I'm <span>Donovan.</span></h1>
-                <p>I'm currently pursuing a Bachelor of Science in Computer Science at the New Jersey Institute of Technology. As a student, I've been privileged to develop a skillset including an understanding of Object Oriented Programming, Data Structures and Algorithms, and the Agile methodology. I'm passionate about expanding my knowledge through project-based learning and keeping up to date with the latest technologies. In the future, I aspire to work as a software engineer making an impact on large scale projects.</p>
-                <a href="#projects" class="btn">View My Work</a>
-            </div>
-            <div class="intro-image">
-                <img src="/images/image.png" alt="Donovan">
-            </div>
-        </div>
-    </section>
+      <!-- About Section -->
+      <div class="about">
+        <h2>About</h2>
+        <p>
+          I'm currently pursuing a Bachelor of Science in Computer Science at the
+          New Jersey Institute of Technology. I have experience in Object Oriented
+          Programming, Data Structures, and Web Development. I'm passionate
+          about building interesting projects and staying current with emerging
+          technologies. Building stuff is fun.
+        </p>
+      </div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project-list">
-                <div class="project-item">
-                    <div class="project-preview">
-                        <img src="/images/orderupcapture.png" alt="Order Up! Preview">
-                        <div class="preview-overlay">
-                            <div class="preview-buttons">
-                                <a href="https://github.com/donovanmchenry/Order-Up/" target="_blank" class="btn project-btn">
-                                    <i class="fab fa-github"></i> View on GitHub
-                                </a>
-                                <a href="https://orderupgame.netlify.app" target="_blank" class="btn project-btn">
-                                    <i class="fas fa-external-link-alt"></i> View Live Site
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3>Order Up!</h3>
-                    <p>"Order Up!" is a memory-based card game where you act as a chef matching ingredients to randomized foods.</p>
-                </div>
-                <div class="project-item">
-                    <div class="project-preview">
-                        <img src="/images/chatify4ocapture.png" alt="Chatify Preview">
-                        <div class="preview-overlay">
-                            <div class="preview-buttons">
-                                <a href="https://github.com/donovanmchenry/Chatify/" target="_blank" class="btn project-btn">
-                                    <i class="fab fa-github"></i> View on GitHub
-                                </a>
-                                <a href="https://chatify4o.netlify.app" target="_blank" class="btn project-btn">
-                                    <i class="fas fa-external-link-alt"></i> View Live Site
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3>Chatify</h3>
-                    <p>"Chatify" is an AI Chatbot that utilizes OpenAI's ChatGPT 3.5 Turbo API and Spotify's API to craft user recommendations through conversation.</p>
-                </div>
-                <div class="project-item">
-                    <h3>productiv</h3>
-                    <p>"productiv" is a task management app that helps users organize and complete daily activities efficiently, using RPG gaming elements to motivate users.</p>
-                    <div class="project-buttons">
-                        <a href="https://github.com/donovanmchenry/productiv" target="_blank" class="btn project-btn">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <h3>stickywall</h3>
-                    <p>"stickywall" is a note-taking app that allows users to stack up notes on a wall to collect their thoughts.</p>
-                    <div class="project-buttons">
-                        <a href="https://github.com/donovanmchenry/stickywall/" target="_blank" class="btn project-btn">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      <!-- Contact Section -->
+      <div class="contact">
+        <h2>Contact</h2>
+        <ul>
+          <li>
+            <a href="mailto:dzm3@njit.edu">
+              <i class="fas fa-envelope"></i> dzm3@njit.edu
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/donovanmchenry" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/donovanmchenry/" target="_blank">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-list">
-                <div class="skill-item">
-                    <i class="fab fa-java"></i> Java
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-js"></i> JavaScript
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-python"></i> Python
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-css3-alt"></i> CSS
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-html5"></i> HTML
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Right Column: Projects, Skills -->
+    <div class="right-column">
+      <!-- Projects Section -->
+      <div class="projects">
+        <h2>Projects</h2>
+        <ul>
+          <li>
+            <strong>Order Up!</strong><br />
+            <em>A memory-based card game where you match ingredients 
+               to randomized foods.</em><br />
+            <a href="https://github.com/donovanmchenry/Order-Up/" target="_blank">
+              GitHub
+            </a> | 
+            <a href="https://orderupgame.netlify.app" target="_blank">
+              Live
+            </a>
+          </li>
+          <li>
+            <strong>Chatify</strong><br />
+            <em>An AI Chatbot utilizing OpenAI's ChatGPT 3.5 Turbo 
+               and Spotify APIs for user recommendations.</em><br />
+            <a href="https://github.com/donovanmchenry/Chatify/" target="_blank">
+              GitHub
+            </a> | 
+            <a href="https://chatify4o.netlify.app" target="_blank">
+              Live
+            </a>
+          </li>
+          <li>
+            <strong>productiv</strong><br />
+            <em>A task management app integrating RPG elements to motivate 
+               daily tasks.</em><br />
+            <a href="https://github.com/donovanmchenry/productiv" target="_blank">
+              GitHub
+            </a>
+          </li>
+          <li>
+            <strong>stickywall</strong><br />
+            <em>A note-taking app that lets you stack sticky notes on a 
+               virtual wall.</em><br />
+            <a href="https://github.com/donovanmchenry/stickywall/" target="_blank">
+              GitHub
+            </a>
+          </li>
+        </ul>
+      </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>You can reach out to me on my socials listed below!</p>
-            <div class="contact-links">
-                <a href="mailto:dzmchenry@gmail.com"><i class="fas fa-envelope"></i> dzmchenry@gmail.com</a>
-                <a href="https://github.com/donovanmchenry" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/donovanmchenry/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Donovan McHenry</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript for Mobile Menu Toggle -->
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-
-        // Change navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.nav-links') && !e.target.closest('.menu-toggle')) {
-                    navLinks.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                }
-            });
-
-            // Close menu when clicking a nav link
-            const navLinksElements = document.querySelectorAll('.nav-links a');
-            navLinksElements.forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                });
-            });
-        });
-    </script>
+      <!-- Skills Section -->
+      <div class="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li><i class="fab fa-java"></i> Java</li>
+          <li><i class="fab fa-js-square"></i> JavaScript</li>
+          <li><i class="fab fa-python"></i> Python</li>
+          <li><i class="fab fa-html5"></i> HTML</li>
+          <li><i class="fab fa-css3-alt"></i> CSS</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
-
