@@ -1,4 +1,3 @@
-/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -102,7 +101,7 @@
   }
   
   .contact a {
-    color: #00aaff; /* Links in dark mode */
+    color: #00aaff; 
     text-decoration: none;
   }
   
