@@ -12,7 +12,8 @@
   body {
     background-color: #333; /* Dark background */
     color: #f5f5f5;         /* Light text */
-    padding-bottom: 3rem; 
+    padding-bottom: 3rem;
+    font-family: "Fira Code", Consolas, Monaco, "Courier New", monospace;
   }
   
   .card-container {
@@ -51,8 +52,8 @@
   }
   
   .profile-section img {
-    width: 135px;
-    height: 135px;
+    width: 220px;
+    height: 220px;
     object-fit: cover;
     border-radius: 4px;
     margin-bottom: 0.8rem;
