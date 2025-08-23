@@ -22,7 +22,7 @@ export function AboutHero() {
             </p>
             
             <p className="text-body mb-6 leading-relaxed">
-              My journey in tech began in highschool, mentoring elementary students through CS@WH (Our school's Computer Science club), 
+              My journey in tech began in highschool, mentoring elementary students through CS@WH (Our school&apos;s Computer Science club), 
               where I discovered my love for teaching and helping others understand complex concepts. 
               This experience taught me the importance of clear communication and showed me the potential of technology to change lives.
             </p>

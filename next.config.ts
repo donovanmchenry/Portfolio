@@ -4,11 +4,15 @@ import createMDX from '@next/mdx'
 const nextConfig: NextConfig = {
   // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  // Enable static export for Netlify
+  output: 'export',
+  trailingSlash: true,
   // Optionally, add any other Next.js config below
   experimental: {
     mdxRs: true,
   },
   images: {
+    unoptimized: true, // Required for static export
     remotePatterns: [
       {
         protocol: 'https',
