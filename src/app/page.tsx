@@ -148,7 +148,7 @@ export default function Home() {
                   variant="ghost"
                   size="sm"
                   asChild
-                  className="bg-[#141414] hover:bg-[#1a1a1a] shadow-sm"
+                  className="bg-[#141414]/60 hover:bg-[#1a1a1a]/70 backdrop-blur-md shadow-sm border border-white/5"
                 >
                   <Link
                     href={link.href}
@@ -173,7 +173,7 @@ export default function Home() {
                 <h2 className="text-xl font-semibold">Experience</h2>
                 <div className="space-y-4">
                   {experience.map((exp) => (
-                    <div key={exp.title} className="p-4 bg-[#111111] rounded-xl space-y-2">
+                    <div key={exp.title} className="p-4 bg-[#111111]/60 backdrop-blur-md rounded-xl space-y-2 border border-white/5">
                       <div className="space-y-1">
                         <h3 className="text-sm font-semibold leading-tight">{exp.title}</h3>
                         <p className="text-xs text-[#aaaaaa]">{exp.company}</p>
@@ -197,7 +197,7 @@ export default function Home() {
                   <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${!showCloudView ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                     <div className="flex flex-wrap gap-2 justify-center max-w-sm">
                       {skills.map((skill) => (
-                        <Badge key={skill} variant="secondary" className="text-xs">
+                        <Badge key={skill} variant="secondary" className="text-xs bg-[#1a1a1a]/60 backdrop-blur-md border border-white/5">
                           {skill}
                         </Badge>
                       ))}
@@ -237,7 +237,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="group block"
                   >
-                    <div className="h-full p-4 bg-[#111111] rounded-xl hover:bg-[#161616] transition-all shadow-sm hover:shadow-md space-y-2">
+                    <div className="h-full p-4 bg-[#111111]/60 backdrop-blur-md rounded-xl hover:bg-[#161616]/70 transition-all shadow-sm hover:shadow-md space-y-2 border border-white/5">
                       <div className="flex items-start justify-between gap-2">
                         <h3 className="text-sm font-semibold leading-tight">{project.title}</h3>
                         <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
@@ -245,7 +245,7 @@ export default function Home() {
                       <p className="text-xs text-[#888888] leading-relaxed">{project.description}</p>
                       <div className="flex flex-wrap gap-1.5">
                         {project.tech.map((tech) => (
-                          <span key={tech} className="text-xs px-2 py-1 bg-[#1a1a1a] rounded text-[#aaaaaa]">
+                          <span key={tech} className="text-xs px-2 py-1 bg-[#1a1a1a]/60 backdrop-blur-sm rounded text-[#aaaaaa] border border-white/5">
                             {tech}
                           </span>
                         ))}
