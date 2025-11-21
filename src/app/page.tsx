@@ -98,7 +98,12 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
+    <div
+      className="min-h-screen flex items-center justify-center p-6 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: 'url(/backgroundimage.JPG)',
+      }}
+    >
       <div className="max-w-6xl w-full bg-[#0a0a0a] rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.8)] overflow-hidden">
         <div className="grid md:grid-cols-[350px_1fr] gap-0">
           {/* Left Column - Profile */}
@@ -131,8 +136,8 @@ export default function Home() {
             </div>
 
             <p className="text-sm text-[#666666] leading-relaxed">
-              Building clean, performant web applications with modern tools.
-              Passionate about developer experience, system design, and connecting with the next generation of ambitious engineers.
+              I truly enjoy building clean, performant web applications with modern tools. In addition, I'm very interested in the implementation of AI across different fields. 
+              I aspire to connect with the next generation of ambitious engineers working on turning science fiction into reality.
             </p>
 
             {/* Social Links */}
