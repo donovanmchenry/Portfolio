@@ -104,7 +104,7 @@ export default function Home() {
         backgroundImage: 'url(/backgroundimage.JPG)',
       }}
     >
-      <div className="max-w-6xl w-full bg-[#0a0a0a] rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.8)] overflow-hidden">
+      <div className="max-w-6xl w-full bg-[#0a0a0a]/80 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.8)] overflow-hidden border border-white/10">
         <div className="grid md:grid-cols-[350px_1fr] gap-0">
           {/* Left Column - Profile */}
           <div className="flex flex-col items-center text-center p-8 space-y-6">
