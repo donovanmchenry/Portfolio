@@ -5,10 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Mail, ExternalLink, List, Globe, Github, Linkedin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { IconCloud } from '@/components/ui/icon-cloud'
-import { AnimatedGradientText } from '@/components/ui/animated-gradient-text'
 
 const skills = [
   'Python', 'JavaScript', 'TypeScript', 'Java', 'C++', 'HTML/CSS',
@@ -136,7 +134,7 @@ export default function Home() {
             </div>
 
             <p className="text-sm text-[#666666] leading-relaxed">
-              I truly enjoy building clean, performant web applications with modern tools. In addition, I'm very interested in the implementation of AI across different fields. 
+              I truly enjoy building clean, performant web applications with modern tools. In addition, I&apos;m very interested in the implementation of AI across different fields.
               I aspire to connect with the next generation of ambitious engineers working on turning science fiction into reality.
             </p>
 
