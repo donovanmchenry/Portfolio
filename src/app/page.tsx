@@ -104,7 +104,7 @@ export default function Home() {
         backgroundImage: 'url(/backgroundimage.JPG)',
       }}
     >
-      <div className="max-w-6xl w-full bg-[#0a0a0a]/80 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.8)] overflow-hidden border border-white/10">
+      <div className="max-w-6xl w-full bg-[#0a0a0a]/80 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.8)] border border-white/10">
         <div className="grid md:grid-cols-[350px_1fr] gap-0">
           {/* Left Column - Profile */}
           <div className="flex flex-col items-center text-center p-8 space-y-6">
@@ -148,7 +148,7 @@ export default function Home() {
                   variant="ghost"
                   size="sm"
                   asChild
-                  className="bg-[#141414]/60 hover:bg-[#1a1a1a]/70 backdrop-blur-md shadow-sm border border-white/5"
+                  className="bg-[#141414]/40 hover:bg-[#1a1a1a]/50 shadow-sm border border-white/10"
                 >
                   <Link
                     href={link.href}
@@ -173,7 +173,7 @@ export default function Home() {
                 <h2 className="text-xl font-semibold">Experience</h2>
                 <div className="space-y-4">
                   {experience.map((exp) => (
-                    <div key={exp.title} className="p-4 bg-[#111111]/60 backdrop-blur-md rounded-xl space-y-2 border border-white/5">
+                    <div key={exp.title} className="p-4 bg-[#111111]/40 rounded-xl space-y-2 border border-white/10">
                       <div className="space-y-1">
                         <h3 className="text-sm font-semibold leading-tight">{exp.title}</h3>
                         <p className="text-xs text-[#aaaaaa]">{exp.company}</p>
@@ -197,7 +197,7 @@ export default function Home() {
                   <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${!showCloudView ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                     <div className="flex flex-wrap gap-2 justify-center max-w-sm">
                       {skills.map((skill) => (
-                        <Badge key={skill} variant="secondary" className="text-xs bg-[#1a1a1a]/60 backdrop-blur-md border border-white/5">
+                        <Badge key={skill} variant="secondary" className="text-xs bg-[#1a1a1a]/40 border border-white/10">
                           {skill}
                         </Badge>
                       ))}
@@ -237,7 +237,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="group block"
                   >
-                    <div className="h-full p-4 bg-[#111111]/60 backdrop-blur-md rounded-xl hover:bg-[#161616]/70 transition-all shadow-sm hover:shadow-md space-y-2 border border-white/5">
+                    <div className="h-full p-4 bg-[#111111]/40 rounded-xl hover:bg-[#161616]/50 transition-all shadow-sm hover:shadow-md space-y-2 border border-white/10">
                       <div className="flex items-start justify-between gap-2">
                         <h3 className="text-sm font-semibold leading-tight">{project.title}</h3>
                         <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
@@ -245,7 +245,7 @@ export default function Home() {
                       <p className="text-xs text-[#888888] leading-relaxed">{project.description}</p>
                       <div className="flex flex-wrap gap-1.5">
                         {project.tech.map((tech) => (
-                          <span key={tech} className="text-xs px-2 py-1 bg-[#1a1a1a]/60 backdrop-blur-sm rounded text-[#aaaaaa] border border-white/5">
+                          <span key={tech} className="text-xs px-2 py-1 bg-[#1a1a1a]/40 rounded text-[#aaaaaa] border border-white/10">
                             {tech}
                           </span>
                         ))}
