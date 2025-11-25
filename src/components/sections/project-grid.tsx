@@ -16,6 +16,7 @@ const projects = [
       { name: 'Algorithm Design', icon: '🧮' }
     ],
     href: 'https://njitautoschedulebuilder.onrender.com/',
+    previewImage: 'https://njitautoschedulebuilder.onrender.com/',
   },
   {
     title: 'Chatify - AI Music Recommendations',
@@ -29,6 +30,7 @@ const projects = [
       { name: 'Session Management', icon: '🗂️' }
     ],
     href: 'https://chatify4o.netlify.app/',
+    previewImage: 'https://chatify4o.netlify.app/',
   },
   {
     title: 'Order Up - Dynamic Card Matching',
@@ -42,6 +44,7 @@ const projects = [
       { name: 'Local Storage', icon: '💾' }
     ],
     href: 'https://orderupgame.netlify.app/',
+    previewImage: 'https://orderupgame.netlify.app/',
   },
 ]
 

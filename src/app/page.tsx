@@ -55,12 +55,14 @@ const projects = [
     description: 'Course schedule generator using constraint-solving algorithms to find optimal schedules based on preferences and availability with 800+ users.',
     tech: ['FastAPI', 'Next.js', 'TypeScript', 'Python'],
     href: 'https://www.njitschedulepro.com/',
+    previewImage: '/project-previews/njit-schedule-pro.png', // Add screenshot to public/project-previews/
   },
   {
     title: 'NJIT Empty Room Finder',
     description: 'Real-time classroom availability finder helping students locate empty rooms with next-occupied time information.',
     tech: ['Flask', 'Python', 'JavaScript', 'REST API'],
     href: 'https://njitemptyroomfinder.onrender.com/',
+    previewImage: '/project-previews/njit-empty-room.png', // Add screenshot to public/project-previews/
   },
 ]
 
@@ -83,6 +85,7 @@ const socialLinks = [
 export default function Home() {
   const [showCloudView, setShowCloudView] = useState(true)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null)
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
@@ -228,34 +231,89 @@ export default function Home() {
               <h2 className="text-xl font-semibold">Projects</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {projects.map((project) => (
-                  <Link
+                  <div
                     key={project.title}
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block"
+                    onMouseEnter={() => setHoveredProject(project.title)}
+                    onMouseLeave={() => setHoveredProject(null)}
                   >
-                    <div className="h-full p-4 bg-[#111111]/40 rounded-xl hover:bg-[#161616]/50 transition-all shadow-sm hover:shadow-md space-y-2 border border-white/10">
-                      <div className="flex items-start justify-between gap-2">
-                        <h3 className="text-sm font-semibold leading-tight">{project.title}</h3>
-                        <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+                    <Link
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block"
+                    >
+                      <div className="h-full p-4 bg-[#111111]/40 rounded-xl hover:bg-[#161616]/50 transition-all shadow-sm hover:shadow-md space-y-2 border border-white/10">
+                        <div className="flex items-start justify-between gap-2">
+                          <h3 className="text-sm font-semibold leading-tight">{project.title}</h3>
+                          <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+                        </div>
+                        <p className="text-xs text-[#888888] leading-relaxed">{project.description}</p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.tech.map((tech) => (
+                            <span key={tech} className="text-xs px-2 py-1 bg-[#1a1a1a]/40 rounded text-[#aaaaaa] border border-white/10">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                      <p className="text-xs text-[#888888] leading-relaxed">{project.description}</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {project.tech.map((tech) => (
-                          <span key={tech} className="text-xs px-2 py-1 bg-[#1a1a1a]/40 rounded text-[#aaaaaa] border border-white/10">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </Link>
+                    </Link>
+                  </div>
                 ))}
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Preview Overlay */}
+      {hoveredProject && (
+        <>
+          {/* Backdrop with glassmorphism */}
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-md z-[9999] pointer-events-none animate-in fade-in duration-200" />
+
+          {/* Preview Window */}
+          <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[10000] pointer-events-none w-[900px] h-[550px] max-w-[90vw] max-h-[90vh] animate-in zoom-in-95 fade-in duration-200">
+            <div className="w-full h-full rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.9)] border border-white/20 bg-[#0a0a0a]/90 backdrop-blur-xl">
+              {/* Browser Chrome */}
+              <div className="w-full h-12 bg-[#1a1a1a]/80 border-b border-white/10 flex items-center px-4 gap-3">
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                </div>
+                <div className="flex-1 flex items-center gap-2 px-4 h-8 bg-[#0a0a0a]/60 rounded-md border border-white/10">
+                  <Globe className="h-3 w-3 text-gray-400" />
+                  <span className="text-xs text-gray-300 truncate">
+                    {projects.find(p => p.title === hoveredProject)?.href}
+                  </span>
+                </div>
+              </div>
+
+              {/* Website Screenshot */}
+              <div className="w-full h-[calc(100%-3rem)] bg-[#0a0a0a] relative">
+                {projects.find(p => p.title === hoveredProject)?.previewImage ? (
+                  <Image
+                    src={projects.find(p => p.title === hoveredProject)?.previewImage || ''}
+                    alt={`Preview of ${hoveredProject}`}
+                    fill
+                    className="object-cover object-top"
+                    unoptimized
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-gray-400">
+                    <Globe className="h-16 w-16 opacity-20" />
+                    <p className="text-sm">No preview available</p>
+                    <p className="text-xs text-gray-500">Add a screenshot to:</p>
+                    <code className="text-xs bg-[#1a1a1a] px-3 py-1 rounded border border-white/10">
+                      public/project-previews/{hoveredProject?.toLowerCase().replace(/\s+/g, '-')}.png
+                    </code>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   )
 }
