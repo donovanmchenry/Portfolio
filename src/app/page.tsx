@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Mail, ExternalLink, List, Globe, Github, Linkedin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -266,14 +267,46 @@ export default function Home() {
       </div>
 
       {/* Preview Overlay */}
-      {hoveredProject && (
-        <>
-          {/* Backdrop with glassmorphism */}
-          <div className="fixed inset-0 bg-black/60 backdrop-blur-md z-[9999] pointer-events-none animate-in fade-in duration-200" />
+      <AnimatePresence mode="wait">
+        {hoveredProject && (
+          <>
+            {/* Backdrop with glassmorphism */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: 0.3,
+                ease: [0.25, 0.1, 0.25, 1.0]
+              }}
+              className="fixed inset-0 bg-black/60 backdrop-blur-md z-[9999] pointer-events-none"
+            />
 
-          {/* Preview Window */}
-          <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[10000] pointer-events-none w-[900px] h-[550px] max-w-[90vw] max-h-[90vh] animate-in zoom-in-95 fade-in duration-200">
-            <div className="w-full h-full rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.9)] border border-white/20 bg-[#0a0a0a]/90 backdrop-blur-xl">
+            {/* Preview Window */}
+            <motion.div
+              initial={{
+                opacity: 0,
+                scale: 0.92,
+                y: 20
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: 0
+              }}
+              exit={{
+                opacity: 0,
+                scale: 0.95,
+                y: 10
+              }}
+              transition={{
+                duration: 0.35,
+                ease: [0.16, 1, 0.3, 1],
+                opacity: { duration: 0.25 }
+              }}
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[10000] pointer-events-none w-[900px] h-[550px] max-w-[90vw] max-h-[90vh]"
+            >
+              <div className="w-full h-full rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.9)] border border-white/20 bg-[#0a0a0a]/90 backdrop-blur-xl">
               {/* Browser Chrome */}
               <div className="w-full h-12 bg-[#1a1a1a]/80 border-b border-white/10 flex items-center px-4 gap-3">
                 <div className="flex gap-2">
@@ -290,7 +323,12 @@ export default function Home() {
               </div>
 
               {/* Website Screenshot */}
-              <div className="w-full h-[calc(100%-3rem)] bg-[#0a0a0a] relative">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.1, duration: 0.3 }}
+                className="w-full h-[calc(100%-3rem)] bg-[#0a0a0a] relative"
+              >
                 {projects.find(p => p.title === hoveredProject)?.previewImage ? (
                   <Image
                     src={projects.find(p => p.title === hoveredProject)?.previewImage || ''}
@@ -309,11 +347,12 @@ export default function Home() {
                     </code>
                   </div>
                 )}
-              </div>
+              </motion.div>
             </div>
-          </div>
-        </>
-      )}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
