@@ -9,7 +9,7 @@ const timelineEvents = [
   {
     title: 'Software Engineering Intern',
     company: 'Obsidian Security',
-    period: 'July 2024 – Present',
+    period: 'July 2025 – Present',
     location: 'Remote',
     description: 'Extended templated PowerShell installer with configurable deployment flags, improved internal documentation, and wrote comprehensive tests to validate REST endpoints.',
     highlights: [

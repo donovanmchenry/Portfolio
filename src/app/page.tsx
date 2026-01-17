@@ -39,13 +39,13 @@ const experience = [
   {
     title: 'Software Engineering Intern',
     company: 'Obsidian Security',
-    period: 'Summer 2024',
+    period: 'Summer 2025',
     description: 'Led enterprise deployment features using React, TypeScript, and MUI, re-architected download infrastructure, and built end-to-end validation systems while improving UI accessibility.',
   },
   {
     title: 'Claude Builder Ambassador',
     company: 'Anthropic',
-    period: 'Fall 2024 - Present',
+    period: 'Fall 2025 - Present',
     description: 'Leading NJIT\'s Claude Builder Club with 100+ members, organizing AI workshops and hackathons while teaching students best practices for building with Anthropic\'s AI tools and MCP architecture.',
   },
 ]
