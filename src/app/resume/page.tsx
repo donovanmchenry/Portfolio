@@ -27,7 +27,7 @@ export default function ResumePage() {
           </a>
         </div>
         <iframe
-          src="/resume.pdf"
+          src="https://docs.google.com/viewer?url=https://dzmchenry.com/resume.pdf&embedded=true"
           className="flex-1 w-full"
           title="Donovan McHenry Resume"
         />
