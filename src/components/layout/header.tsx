@@ -29,7 +29,8 @@ function makeBolt(x1: number, y1: number, x2: number, y2: number): string {
 }
 
 export function Header() {
-  const pathname = usePathname()
+  const rawPathname = usePathname()
+  const pathname = rawPathname.replace(/\/$/, '') || '/'
   const router = useRouter()
   const [activePath, setActivePath] = useState(pathname)
   const navRef = useRef<HTMLDivElement>(null)
