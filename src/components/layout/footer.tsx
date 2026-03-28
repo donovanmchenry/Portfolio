@@ -1,7 +1,4 @@
-'use client'
-
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { Mail, Github, Linkedin } from 'lucide-react'
 
 const socials = [
@@ -13,12 +10,7 @@ const socials = [
 export function Footer() {
   return (
     <div className="flex justify-center pt-4 pb-8">
-      <motion.div
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-        className="flex items-center gap-1 px-2 py-2 rounded-2xl bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.6)]"
-      >
+      <div className="flex items-center gap-1 px-2 py-2 rounded-2xl bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.6)]">
         {socials.map((social) => (
           <Link
             key={social.name}
@@ -31,7 +23,7 @@ export function Footer() {
             <social.icon className="h-4 w-4" />
           </Link>
         ))}
-      </motion.div>
+      </div>
     </div>
   )
 }

@@ -49,9 +49,10 @@ export default function ProjectsPage() {
       >
         <h1 className="text-2xl font-bold mb-6">Projects</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <div
               key={project.title}
+              className={index === projects.length - 1 && projects.length % 2 !== 0 ? 'md:col-span-2 md:max-w-[calc(50%-8px)] md:mx-auto w-full' : ''}
               onMouseEnter={() => !project.noPreview && setHoveredProject(project.title)}
               onMouseLeave={() => setHoveredProject(null)}
             >
