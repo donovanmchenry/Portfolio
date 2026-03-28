@@ -132,16 +132,16 @@ export default function Home() {
               />
             </div>
 
-            <div className="w-full space-y-1.5">
+            <div className="w-44 space-y-1.5">
               <div className="flex gap-2">
                 <input
                   type="text"
                   value={aiPrompt}
                   onChange={e => setAiPrompt(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && handleEditPhoto()}
-                  placeholder="Alter my photo with Gemini!"
+                  placeholder="Alter my photo!"
                   disabled={isGenerating}
-                  className="flex-1 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/25 transition-colors disabled:opacity-50"
+                  className="flex-1 min-w-0 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/25 transition-colors disabled:opacity-50"
                 />
                 {editedImage ? (
                   <button
