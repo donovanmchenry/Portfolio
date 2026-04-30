@@ -39,15 +39,21 @@ const skillIcons = [
 const experience = [
   {
     title: 'Software Engineering Intern',
-    company: 'Obsidian Security',
-    period: 'Summer 2025',
-    description: 'Led enterprise deployment features using React, TypeScript, and MUI, re-architected download infrastructure, and built end-to-end validation systems while improving UI accessibility.',
+    company: 'Universal Music Group',
+    period: 'Summer 2026',
+    description: 'Developing release planning software for GR4O Global Technology, coordinating distribution across global markets.',
   },
   {
     title: 'Claude Builder Ambassador',
     company: 'Anthropic',
-    period: 'Fall 2025 - Present',
-    description: 'Leading NJIT\'s Claude Builder Club with 100+ members, organizing AI workshops and hackathons while teaching students best practices for building with Anthropic\'s AI tools and MCP architecture.',
+    period: 'Fall 2025 – Spring 2026',
+    description: 'Founded NJIT\'s Claude Builder Club with 100+ members, hosting workshops and coordinating speaking engagements with Anthropic staff.',
+  },
+  {
+    title: 'Software Engineering Intern',
+    company: 'Obsidian Security',
+    period: 'Summer 2025',
+    description: 'Built enterprise deployment features using React, TypeScript, and MUI, and improved UI accessibility.',
   },
 ]
 
@@ -169,12 +175,12 @@ export default function Home() {
                 Donovan McHenry
               </h1>
               <p className="text-sm text-[#ffffff]">
-                NJIT CS &apos;27 · Claude Builder Ambassador @ Anthropic · Prev. SWE Intern @ Obsidian Security
+                NJIT CS &apos;27 · Incoming SWE Intern @ UMG
               </p>
             </div>
 
             <p className="text-sm text-[#666666] leading-relaxed">
-              I truly enjoy building clean, performant web applications with modern tools. In addition, I&apos;m interested in the implementation of agentic AI across different fields.
+              Full-stack engineer with a focus on performance, systems design, and AI-native applications. I work across the stack: from REST APIs and database architecture to responsive UIs, and am currently deep in agentic AI, MCP tooling, and building LLM-powered workflows.
             </p>
 
           </div>
@@ -187,13 +193,13 @@ export default function Home() {
                 <h2 className="text-xl font-semibold">Experience</h2>
                 <div className="space-y-4">
                   {experience.map((exp) => (
-                    <div key={exp.title} className="p-4 bg-[#111111]/40 rounded-xl space-y-2 border border-white/10">
+                    <div key={exp.company} className="p-4 bg-[#111111]/40 rounded-xl border border-white/10 space-y-2">
                       <div className="space-y-1">
                         <h3 className="text-sm font-semibold leading-tight">{exp.title}</h3>
                         <p className="text-xs text-[#aaaaaa]">{exp.company}</p>
                         <p className="text-xs text-[#666666]">{exp.period}</p>
                       </div>
-                      <p className="text-xs text-[#888888]">{exp.description}</p>
+                      <p className="text-xs text-[#888888] leading-relaxed">{exp.description}</p>
                     </div>
                   ))}
                 </div>

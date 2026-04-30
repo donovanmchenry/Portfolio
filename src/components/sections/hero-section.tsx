@@ -24,7 +24,7 @@ export function HeroSection() {
             </h1>
             
             <p className="text-subheading mb-8 text-muted-foreground">
-              NJIT CS &apos;27 · SWE Intern @ Obsidian Security
+              NJIT CS &apos;27 · Incoming SWE Intern @ UMG · Claude Builder Ambassador @ Anthropic
             </p>
             
             <p className="text-body mb-12 leading-relaxed">

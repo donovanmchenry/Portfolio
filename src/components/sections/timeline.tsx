@@ -8,6 +8,19 @@ import { Section } from './section'
 const timelineEvents = [
   {
     title: 'Software Engineering Intern',
+    company: 'Universal Music Group',
+    period: 'Summer 2026',
+    location: 'Remote',
+    description: 'Joining the GR4O Global Technology team to develop release planning software that coordinates physical, merch, and digital distribution across global markets. Working with Python, TypeScript, and modern web technologies to build internal tools supporting UMG\'s worldwide music release strategy.',
+    highlights: [
+      'Release planning software for global markets',
+      'Coordinating physical, merch, and digital distribution',
+      'Python, TypeScript, and modern web technologies'
+    ],
+    current: true
+  },
+  {
+    title: 'Software Engineering Intern',
     company: 'Obsidian Security',
     period: 'July 2025 – Present',
     location: 'Remote',
@@ -16,8 +29,19 @@ const timelineEvents = [
       'Reduced manual setup time for admins',
       'Streamlined developer experience',
       'Improved system reliability through testing'
-    ],
-    current: true
+    ]
+  },
+  {
+    title: 'Claude Builder Ambassador',
+    company: 'Anthropic',
+    period: 'Fall 2025 – Spring 2026',
+    location: 'Newark, NJ',
+    description: 'Founded and lead NJIT\'s Claude Builder Club with 100+ members, organizing workshops, hackathons, and technical events. Coordinated speaking engagements with Anthropic technical staff and teach students best practices for building AI applications using Claude and MCP architecture.',
+    highlights: [
+      'Founded club with 100+ members',
+      'Coordinated speaking engagements with Anthropic staff',
+      'Teaching Claude API and MCP architecture'
+    ]
   },
   {
     title: 'Computer Science Student',
