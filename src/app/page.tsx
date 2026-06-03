@@ -175,7 +175,7 @@ export default function Home() {
                 Donovan McHenry
               </h1>
               <p className="text-sm text-[#ffffff]">
-                NJIT CS &apos;27 · Incoming SWE Intern @ UMG
+                SWE Intern @ UMG · NJIT CS &apos;27
               </p>
             </div>
 
