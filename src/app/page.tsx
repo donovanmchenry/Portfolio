@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { List, Globe, Sparkles, RotateCcw, Loader2 } from 'lucide-react'
@@ -60,11 +60,21 @@ const experience = [
 
 export default function Home() {
   const [showCloudView, setShowCloudView] = useState(true)
+  const [canTiltPhoto, setCanTiltPhoto] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [aiPrompt, setAiPrompt] = useState('')
   const { editedImage, setEditedImage } = usePhoto()
   const [isGenerating, setIsGenerating] = useState(false)
   const [aiError, setAiError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const updateCanTilt = () => setCanTiltPhoto(mediaQuery.matches)
+
+    updateCanTilt()
+    mediaQuery.addEventListener('change', updateCanTilt)
+    return () => mediaQuery.removeEventListener('change', updateCanTilt)
+  }, [])
 
   async function handleEditPhoto() {
     if (!aiPrompt.trim() || isGenerating) return
@@ -116,10 +126,12 @@ export default function Home() {
           <div className="flex flex-col items-center text-center p-8 space-y-6">
             <div
               className="relative w-40 h-40 rounded-xl overflow-hidden shadow-lg transition-transform duration-200 ease-out cursor-pointer"
-              onMouseMove={!editedImage ? handleMouseMove : undefined}
-              onMouseLeave={!editedImage ? handleMouseLeave : undefined}
+              onMouseMove={canTiltPhoto && !editedImage ? handleMouseMove : undefined}
+              onMouseLeave={canTiltPhoto && !editedImage ? handleMouseLeave : undefined}
               style={{
-                transform: editedImage ? undefined : `perspective(1000px) rotateX(${mousePosition.y * -10}deg) rotateY(${mousePosition.x * 10}deg) translateZ(10px)`,
+                transform: canTiltPhoto && !editedImage
+                  ? `perspective(1000px) rotateX(${mousePosition.y * -10}deg) rotateY(${mousePosition.x * 10}deg) translateZ(10px)`
+                  : undefined,
               }}
             >
               {isGenerating && (
