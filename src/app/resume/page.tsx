@@ -8,7 +8,7 @@ export default function ResumePage() {
   return (
     <div
       className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: 'url(/backgroundimage.JPG)' }}
+      style={{ backgroundImage: 'url(/background-beach.jpeg)' }}
     >
       <div className="flex-1 flex items-center justify-center p-6 pt-20">
         <motion.div
