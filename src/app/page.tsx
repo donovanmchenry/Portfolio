@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { List, Globe, Sparkles, RotateCcw, Loader2 } from 'lucide-react'
+import { List, Globe, Sparkles, RotateCcw, Loader2, Database } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { IconCloud } from '@/components/ui/icon-cloud'
@@ -11,29 +11,56 @@ import { Footer } from '@/components/layout/footer'
 import { usePhoto } from '@/components/providers/photo-context'
 
 const skills = [
-  'Python', 'JavaScript', 'TypeScript', 'Java', 'C++', 'HTML/CSS',
-  'React', 'Next.js', 'Node.js', 'Express', 'Flask', 'Tailwind',
-  'Git', 'GitHub', 'Docker', 'VS Code', 'OpenAI', 'REST APIs'
+  { name: 'Python', icons: ['https://cdn.simpleicons.org/python/ffffff'], background: '#3776AB' },
+  { name: 'JavaScript', icons: ['https://cdn.simpleicons.org/javascript/111111'], background: '#F7DF1E', foreground: '#111111' },
+  { name: 'TypeScript', icons: ['https://cdn.simpleicons.org/typescript/ffffff'], background: '#3178C6' },
+  { name: 'Java', icons: ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg'], background: '#F5F5F5', foreground: '#1F2937' },
+  { name: 'C++', icons: ['https://cdn.simpleicons.org/cplusplus/ffffff'], background: '#00599C' },
+  { name: 'Bash', icons: ['https://cdn.simpleicons.org/gnubash/ffffff'], background: '#4EAA25' },
+  { name: 'SQL', icons: [], background: '#336791' },
+  { name: 'React', icons: ['https://cdn.simpleicons.org/react/111111'], background: '#61DAFB', foreground: '#111111' },
+  { name: 'Next.js', icons: ['https://cdn.simpleicons.org/nextdotjs/ffffff'], background: '#000000' },
+  { name: 'MUI', icons: ['https://cdn.simpleicons.org/mui/ffffff'], background: '#007FFF' },
+  { name: 'Zustand', icons: ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/zustand/zustand-original.svg'], background: '#F5E8D0', foreground: '#2D221B' },
+  { name: 'Tailwind', icons: ['https://cdn.simpleicons.org/tailwindcss/ffffff'], background: '#06B6D4' },
+  { name: 'Node.js', icons: ['https://cdn.simpleicons.org/nodedotjs/ffffff'], background: '#339933' },
+  { name: 'Express', icons: ['https://cdn.simpleicons.org/express/ffffff'], background: '#404D59' },
+  { name: 'FastAPI', icons: ['https://cdn.simpleicons.org/fastapi/ffffff'], background: '#009688' },
+  { name: 'Pydantic', icons: ['https://cdn.simpleicons.org/pydantic/ffffff'], background: '#E92063' },
+  { name: 'OpenAI', icons: ['https://cdn.simpleicons.org/openai/ffffff'], background: '#412991' },
+  { name: 'Anthropic', icons: ['https://cdn.simpleicons.org/anthropic/ffffff'], background: '#191919' },
+  { name: 'MCP', icons: ['https://cdn.simpleicons.org/modelcontextprotocol/ffffff'], background: '#5B5B5B' },
+  { name: 'Git', icons: ['https://cdn.simpleicons.org/git/ffffff'], background: '#F05032' },
+  { name: 'GitHub Actions', icons: ['https://cdn.simpleicons.org/githubactions/ffffff'], background: '#2088FF' },
+  { name: 'Docker', icons: ['https://cdn.simpleicons.org/docker/ffffff'], background: '#2496ED' },
+  { name: 'Playwright', icons: ['https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg'], background: '#F5F5F5', foreground: '#1F2937' },
+  { name: 'FFmpeg', icons: ['https://cdn.simpleicons.org/ffmpeg/ffffff'], background: '#007808' },
 ]
 
 const skillIcons = [
   'https://cdn.simpleicons.org/python',
   'https://cdn.simpleicons.org/javascript',
   'https://cdn.simpleicons.org/typescript',
-  'https://cdn.simpleicons.org/oracle',
+  'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg',
   'https://cdn.simpleicons.org/cplusplus',
-  'https://cdn.simpleicons.org/html5',
   'https://cdn.simpleicons.org/react',
   'https://cdn.simpleicons.org/nextdotjs/ffffff',
+  'https://cdn.simpleicons.org/mui',
+  'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/zustand/zustand-original.svg',
   'https://cdn.simpleicons.org/nodedotjs',
   'https://cdn.simpleicons.org/express/ffffff',
-  'https://cdn.simpleicons.org/flask',
+  'https://cdn.simpleicons.org/fastapi',
+  'https://cdn.simpleicons.org/pydantic',
   'https://cdn.simpleicons.org/tailwindcss',
+  'https://cdn.simpleicons.org/openai/ffffff',
+  'https://cdn.simpleicons.org/anthropic/ffffff',
+  'https://cdn.simpleicons.org/modelcontextprotocol/ffffff',
   'https://cdn.simpleicons.org/git',
-  'https://cdn.simpleicons.org/github/ffffff',
+  'https://cdn.simpleicons.org/githubactions',
   'https://cdn.simpleicons.org/docker',
-  'https://cdn.simpleicons.org/visualstudiocode',
-  'https://cdn.simpleicons.org/openai',
+  'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg',
+  'https://cdn.simpleicons.org/ffmpeg',
+  'https://cdn.simpleicons.org/gnubash',
 ]
 
 const experience = [
@@ -229,8 +256,33 @@ export default function Home() {
                   <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${!showCloudView ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                     <div className="flex flex-wrap gap-2 justify-center max-w-sm">
                       {skills.map((skill) => (
-                        <Badge key={skill} variant="secondary" className="text-xs bg-[#1a1a1a]/40 border border-white/10">
-                          {skill}
+                        <Badge
+                          key={skill.name}
+                          variant="secondary"
+                          className="gap-1.5 border border-white/10 px-2.5 py-1 text-xs text-white shadow-sm transition-transform hover:-translate-y-0.5"
+                          style={{
+                            background: skill.background,
+                            color: skill.foreground ?? '#ffffff',
+                          }}
+                        >
+                          {skill.icons.length > 0 ? (
+                            <span className="flex items-center gap-0.5" aria-hidden="true">
+                              {skill.icons.map((icon) => (
+                                <Image
+                                  key={icon}
+                                  src={icon}
+                                  alt=""
+                                  width={12}
+                                  height={12}
+                                  className="size-3"
+                                  unoptimized
+                                />
+                              ))}
+                            </span>
+                          ) : (
+                            <Database className="size-3" aria-hidden="true" />
+                          )}
+                          {skill.name}
                         </Badge>
                       ))}
                     </div>
