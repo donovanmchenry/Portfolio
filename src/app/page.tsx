@@ -68,7 +68,7 @@ const experience = [
     title: 'Software Engineering Intern',
     company: 'Universal Music Group',
     period: 'Summer 2026',
-    description: 'Developing release planning software for GR4O Global Technology, coordinating distribution across global markets.',
+    description: 'Built a full-stack evaluation and observability platform for an LLM-powered music discovery service using Python, Flask, and React. Automated quality and regression testing, improved search reliability, and surfaced cost and latency bottlenecks through trace-driven dashboards and reproducible reports.',
   },
   {
     title: 'Claude Builder Ambassador',

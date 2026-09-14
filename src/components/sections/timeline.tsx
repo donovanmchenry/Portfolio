@@ -11,13 +11,13 @@ const timelineEvents = [
     company: 'Universal Music Group',
     period: 'Summer 2026',
     location: 'Remote',
-    description: 'Joining the GR4O Global Technology team to develop release planning software that coordinates physical, merch, and digital distribution across global markets. Working with Python, TypeScript, and modern web technologies to build internal tools supporting UMG\'s worldwide music release strategy.',
+    description: 'Built a full-stack evaluation and observability platform for an LLM-powered music discovery service using Python, Flask, and React. Automated quality and regression testing, improved search reliability, and surfaced cost and latency bottlenecks through trace-driven dashboards and reproducible reports.',
     highlights: [
-      'Release planning software for global markets',
-      'Coordinating physical, merch, and digital distribution',
-      'Python, TypeScript, and modern web technologies'
+      'Evaluation platform for LLM-powered music discovery',
+      'Improved search reliability',
+      'Cost and latency observability tooling'
     ],
-    current: true
+    current: false
   },
   {
     title: 'Software Engineering Intern',
