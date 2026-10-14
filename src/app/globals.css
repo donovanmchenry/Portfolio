@@ -127,19 +127,18 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    isolation: isolate;
   }
 
   html {
     scroll-behavior: smooth;
+    overscroll-behavior-y: none;
+    background: #8c928f url('/background-beach.jpeg') center / cover no-repeat fixed;
   }
 
-  /* Pure black background in dark mode */
+  body,
   .dark body {
-    background-color: #000000;
-    background-image: 
-      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.02) 0%, transparent 30%);
-    background-attachment: fixed;
+    background: transparent;
   }
 
   /* Focus rings */
@@ -160,6 +159,29 @@
 }
 
 @layer components {
+  .site-content {
+    --site-scale: 1;
+    zoom: var(--site-scale);
+  }
+
+  .page-shell {
+    min-height: calc(100svh / var(--site-scale));
+  }
+
+  .site-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: url('/background-beach.jpeg') center / cover no-repeat;
+  }
+
+  @media (min-width: 768px) {
+    .site-content {
+      --site-scale: 0.9;
+    }
+  }
+
   /* Typography scale */
   .text-display {
     @apply text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl;
@@ -219,3 +241,42 @@
   }
 }
 
+@media (min-width: 768px) {
+  .projects-page {
+    height: calc(100svh / var(--site-scale));
+  }
+
+  .projects-main {
+    min-height: 0;
+    padding-bottom: 0;
+  }
+
+  .projects-panel {
+    max-height: 100%;
+  }
+
+  .project-preview {
+    max-height: clamp(88px, 17svh, 135px);
+  }
+
+  .projects-page > :last-child {
+    flex-shrink: 0;
+    padding-top: 12px;
+    padding-bottom: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-height: 700px) {
+  .projects-panel {
+    padding: 16px;
+  }
+
+  .projects-list {
+    gap: 8px;
+  }
+
+  .project-row {
+    grid-template-columns: 1fr 200px;
+    padding: 8px;
+  }
+}

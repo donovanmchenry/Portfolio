@@ -49,14 +49,13 @@ export function Header() {
     const nav = navRef.current
     if (!button || !nav) return
 
-    const nr = nav.getBoundingClientRect()
-    const br = button.getBoundingClientRect()
-    const newPill = { left: br.left - nr.left, width: br.width }
+    // Layout coordinates keep the pill aligned when the site is scaled.
+    const newPill = { left: button.offsetLeft, width: button.offsetWidth }
 
     if (prevPillRef.current && prevPillRef.current.left !== newPill.left) {
       const fromX = prevPillRef.current.left + prevPillRef.current.width / 2
       const toX = newPill.left + newPill.width / 2
-      const cy = nr.height / 2
+      const cy = nav.clientHeight / 2
       const colors = ['#ffffff', '#ffe566', '#ff9d00']
 
       setBolts(Array.from({ length: 6 }, (_, i) => ({

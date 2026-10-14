@@ -129,8 +129,8 @@ export function IconCloud({ icons, images }: IconCloudProps) {
     const rect = canvasRef.current?.getBoundingClientRect()
     if (!rect || !canvasRef.current) return
 
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
+    const x = (e.clientX - rect.left) * canvasRef.current.width / rect.width
+    const y = (e.clientY - rect.top) * canvasRef.current.height / rect.height
 
     const ctx = canvasRef.current.getContext("2d")
     if (!ctx) return
@@ -187,9 +187,9 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 
   const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const rect = canvasRef.current?.getBoundingClientRect()
-    if (rect) {
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
+    if (rect && canvasRef.current) {
+      const x = (e.clientX - rect.left) * canvasRef.current.width / rect.width
+      const y = (e.clientY - rect.top) * canvasRef.current.height / rect.height
       setMousePos({ x, y })
     }
 

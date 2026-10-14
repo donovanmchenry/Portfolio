@@ -58,8 +58,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <PhotoProvider>
-          <Header />
-          {children}
+            <div className="site-backdrop" aria-hidden="true" />
+            <div className="site-content">
+              <Header />
+              {children}
+            </div>
           </PhotoProvider>
         </ThemeProvider>
       </body>

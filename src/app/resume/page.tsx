@@ -6,10 +6,7 @@ import { Download, ExternalLink } from 'lucide-react'
 
 export default function ResumePage() {
   return (
-    <div
-      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: 'url(/background-beach.jpeg)' }}
-    >
+    <div className="page-shell flex flex-col">
       <div className="flex-1 flex items-center justify-center p-6 pt-20">
         <motion.div
           className="max-w-md w-full bg-[#0a0a0a]/80 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.8)] border border-white/10 p-8 flex flex-col items-center gap-6 text-center"
