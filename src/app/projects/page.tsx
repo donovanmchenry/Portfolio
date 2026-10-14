@@ -33,31 +33,31 @@ const projects = [
 export default function ProjectsPage() {
   return (
     <div className="page-shell projects-page flex flex-col">
-      <div className="projects-main flex-1 flex items-center justify-center p-4 pt-20">
+      <div className="projects-main flex-1 flex items-center justify-center p-6 pt-20">
         <motion.div
-          className="projects-panel max-w-5xl w-full bg-[#0a0a0a]/80 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.8)] border border-white/10 p-4 sm:p-6"
+          className="projects-panel max-w-6xl w-full bg-[#0a0a0a]/80 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.8)] border border-white/10 p-6 sm:p-8"
           initial={{ opacity: 0, scale: 0.95, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
         >
           <h1 className="text-2xl font-bold mb-4">Projects</h1>
-          <div className="projects-list flex flex-col gap-3">
+          <div className="projects-list flex flex-col gap-4">
             {projects.map((project) => (
               <Link
                 key={project.title}
                 href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="project-row group grid grid-cols-1 md:grid-cols-[1fr_240px] items-center gap-4 p-3 bg-[#111111]/40 rounded-xl hover:bg-[#161616]/50 transition-colors border border-white/10 focus-visible:outline-white"
+                className="project-row group grid grid-cols-1 md:grid-cols-[1fr_280px] items-center gap-6 p-4 bg-[#111111]/40 rounded-xl hover:bg-[#161616]/50 transition-colors border border-white/10 focus-visible:outline-white"
               >
                 <div className="space-y-2">
                   <div className="flex items-start justify-between gap-2">
                     <h2 className="text-base font-semibold leading-tight">{project.title}</h2>
                   </div>
-                  <p className="text-xs text-[#888888] leading-relaxed">{project.description}</p>
+                  <p className="text-sm text-[#888888] leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {project.tech.map((tech) => (
-                      <span key={tech} className="text-[11px] px-2 py-0.5 bg-[#1a1a1a]/40 rounded text-[#aaaaaa] border border-white/10">
+                      <span key={tech} className="text-xs px-2 py-0.5 bg-[#1a1a1a]/40 rounded text-[#aaaaaa] border border-white/10">
                         {tech}
                       </span>
                     ))}
@@ -69,7 +69,7 @@ export default function ProjectsPage() {
                     alt={project.title === 'Learnflix' ? 'Learnflix logo' : `Screenshot of ${project.title}`}
                     fill
                     className={project.title === 'Learnflix' ? 'object-contain p-4' : 'object-contain'}
-                    sizes="(min-width: 768px) 240px, (min-width: 640px) calc(100vw - 144px), calc(100vw - 112px)"
+                    sizes="(min-width: 768px) 280px, (min-width: 640px) calc(100vw - 144px), calc(100vw - 112px)"
                   />
                   <span className="absolute top-2 right-2 z-10 flex h-7 w-7 items-center justify-center rounded-md border border-white/10 bg-black/70 text-white/60 transition-colors group-hover:text-white group-focus-visible:text-white" aria-hidden="true">
                     <ExternalLink className="h-4 w-4" />

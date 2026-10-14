@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
@@ -31,10 +32,9 @@ function makeBolt(x1: number, y1: number, x2: number, y2: number): string {
 export function Header() {
   const rawPathname = usePathname()
   const pathname = rawPathname.replace(/\/$/, '') || '/'
-  const router = useRouter()
   const [activePath, setActivePath] = useState(pathname)
   const navRef = useRef<HTMLDivElement>(null)
-  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([])
   const [pill, setPill] = useState<{ left: number; width: number } | null>(null)
   const prevPillRef = useRef<{ left: number; width: number } | null>(null)
   const [bolts, setBolts] = useState<Bolt[]>([])
@@ -45,12 +45,12 @@ export function Header() {
 
   useEffect(() => {
     const activeIndex = navigation.findIndex(item => item.href === activePath)
-    const button = buttonRefs.current[activeIndex]
+    const link = linkRefs.current[activeIndex]
     const nav = navRef.current
-    if (!button || !nav) return
+    if (!link || !nav) return
 
     // Layout coordinates keep the pill aligned when the site is scaled.
-    const newPill = { left: button.offsetLeft, width: button.offsetWidth }
+    const newPill = { left: link.offsetLeft, width: link.offsetWidth }
 
     if (prevPillRef.current && prevPillRef.current.left !== newPill.left) {
       const fromX = prevPillRef.current.left + prevPillRef.current.width / 2
@@ -89,12 +89,6 @@ export function Header() {
     prevPillRef.current = newPill
     setPill(newPill)
   }, [activePath])
-
-  function handleNav(href: string) {
-    if (href === activePath) return
-    setActivePath(href)
-    router.push(href)
-  }
 
   return (
     <div className="fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none">
@@ -162,10 +156,13 @@ export function Header() {
         </svg>
 
         {navigation.map((item, index) => (
-          <button
+          <Link
             key={item.href}
-            ref={el => { buttonRefs.current[index] = el }}
-            onClick={() => handleNav(item.href)}
+            href={item.href}
+            prefetch={true}
+            ref={el => { linkRefs.current[index] = el }}
+            onNavigate={() => setActivePath(item.href)}
+            aria-current={pathname === item.href ? 'page' : undefined}
             className="relative z-10 px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer"
           >
             <span className={cn(
@@ -174,7 +171,7 @@ export function Header() {
             )}>
               {item.name}
             </span>
-          </button>
+          </Link>
         ))}
       </motion.div>
     </div>

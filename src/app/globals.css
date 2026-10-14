@@ -256,7 +256,7 @@
   }
 
   .project-preview {
-    max-height: clamp(88px, 17svh, 135px);
+    max-height: clamp(100px, 15svh, 140px);
   }
 
   .projects-page > :last-child {
