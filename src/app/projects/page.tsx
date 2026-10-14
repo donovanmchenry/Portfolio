@@ -12,14 +12,14 @@ const projects = [
     description: 'Course schedule generator using constraint-solving algorithms to find optimal schedules based on preferences and availability with 800+ users.',
     tech: ['FastAPI', 'Next.js', 'TypeScript', 'Python'],
     href: 'https://www.njitschedulepro.com/',
-    previewImage: '/project-previews/njit-schedule-pro.png',
+    previewImage: '/project-previews/njit-schedule-pro-logo.png',
   },
   {
     title: 'NJIT Empty Room Finder',
     description: 'Real-time classroom availability finder helping students locate empty rooms with next-occupied time information.',
     tech: ['Flask', 'Python', 'JavaScript', 'REST API'],
     href: 'https://njitemptyroomfinder.onrender.com/',
-    previewImage: '/project-previews/njit-empty-room.png',
+    previewImage: '/project-previews/njit-empty-room-logo.png',
   },
   {
     title: 'Learnflix',
@@ -66,9 +66,9 @@ export default function ProjectsPage() {
                 <div className="project-preview relative aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-[#0a0a0a] order-first md:order-none">
                   <Image
                     src={project.previewImage}
-                    alt={project.title === 'Learnflix' ? 'Learnflix logo' : `Screenshot of ${project.title}`}
+                    alt={`${project.title} logo`}
                     fill
-                    className={project.title === 'Learnflix' ? 'object-contain p-4' : 'object-contain'}
+                    className="object-contain p-4"
                     sizes="(min-width: 768px) 280px, (min-width: 640px) calc(100vw - 144px), calc(100vw - 112px)"
                   />
                   <span className="absolute top-2 right-2 z-10 flex h-7 w-7 items-center justify-center rounded-md border border-white/10 bg-black/70 text-white/60 transition-colors group-hover:text-white group-focus-visible:text-white" aria-hidden="true">
