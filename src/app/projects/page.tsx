@@ -32,10 +32,10 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-    <div className="page-shell projects-page flex flex-col">
-      <div className="projects-main flex-1 flex items-center justify-center p-6 pt-20">
+    <div className="page-shell portfolio-page flex flex-col">
+      <div className="portfolio-main flex-1 flex items-center justify-center p-6 pt-20">
         <motion.div
-          className="projects-panel max-w-6xl w-full bg-[#0a0a0a]/80 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.8)] border border-white/10 p-6 sm:p-8"
+          className="portfolio-panel projects-panel max-w-6xl w-full bg-[#0a0a0a]/80 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.8)] border border-white/10 p-6 sm:p-8"
           initial={{ opacity: 0, scale: 0.95, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}

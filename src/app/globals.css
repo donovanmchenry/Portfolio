@@ -242,24 +242,42 @@
 }
 
 @media (min-width: 768px) {
-  .projects-page {
+  .portfolio-page {
     height: calc(100svh / var(--site-scale));
   }
 
-  .projects-main {
+  .portfolio-main {
     min-height: 0;
     padding-bottom: 0;
   }
 
+  .portfolio-panel {
+    height: min(760px, calc(100svh / var(--site-scale) - 176px));
+    overflow-y: auto;
+  }
+
   .projects-panel {
-    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects-panel > h1 {
+    flex-shrink: 0;
+  }
+
+  .projects-list {
+    flex: 1;
+  }
+
+  .project-row {
+    flex: 1;
   }
 
   .project-preview {
     max-height: clamp(100px, 15svh, 140px);
   }
 
-  .projects-page > :last-child {
+  .portfolio-page > :last-child {
     flex-shrink: 0;
     padding-top: 12px;
     padding-bottom: 16px;
